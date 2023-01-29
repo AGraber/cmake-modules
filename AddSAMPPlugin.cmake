@@ -3,11 +3,6 @@ function(add_samp_plugin name)
 
   set_target_properties(${name} PROPERTIES PREFIX "")
 
-  if(CMAKE_COMPILER_IS_GNUCC OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-    set_property(TARGET ${name} APPEND_STRING PROPERTY COMPILE_FLAGS " -m32")
-    set_property(TARGET ${name} APPEND_STRING PROPERTY LINK_FLAGS    " -m32")
-  endif()
-
   if(CMAKE_COMPILER_IS_GNUCXX)
     set_property(TARGET ${name} APPEND_STRING PROPERTY
                  COMPILE_FLAGS " -Wno-attributes")
